@@ -338,10 +338,9 @@ def eliminarUsuario(id):
 
 @app.route("/usuarios/<string:id>/rol/<string:id2>",methods=['PUT'])
 def modificarUsuarioasignarRol(id,id2):
-    data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
     url = dataConfig["url-backend-security"] + '/usuarios/'+id+"/rol/"+id2
-    response = requests.put(url, headers=headers, json=data)
+    response = requests.put(url, headers=headers)
     json = response.json()
     return jsonify(json)
 
@@ -445,10 +444,10 @@ def getListarPermisoRoles():
     return jsonify(json)
 @app.route("/permisos-roles/rol/<string:id>/permiso/<string:id2>",methods=['POST'])
 def crearPermisoRoles(id,id2):
-    data = request.get_json()
+
     headers = {"Content-Type": "application/json; charset=utf-8"}
     url = dataConfig["url-backend-security"] + '/permisos-roles/rol' + id + '/permiso' + id2
-    response = requests.post(url, headers=headers,json=data)
+    response = requests.post(url, headers=headers)
     json = response.json()
     return jsonify(json)
 @app.route("/permisos-roles/<string:id>",methods=['GET'])
