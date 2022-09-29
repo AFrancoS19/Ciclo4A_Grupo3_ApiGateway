@@ -446,7 +446,7 @@ def getListarPermisoRoles():
 def crearPermisoRoles(id,id2):
 
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-security"] + '/permisos-roles/rol' + id + '/permiso' + id2
+    url = dataConfig["url-backend-security"] + '/permisos-roles/rol/' + id + '/permiso/' + id2
     response = requests.post(url, headers=headers)
     json = response.json()
     return jsonify(json)
